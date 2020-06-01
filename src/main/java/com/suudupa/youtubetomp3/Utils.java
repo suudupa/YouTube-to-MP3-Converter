@@ -13,6 +13,7 @@ public class Utils {
     private static final String CONVERTER = "320";
     private static final String DOWNLOAD_ELEMENT = "a.btn.btn-success.btn-lg";
     private static final String DOWNLOAD_LINK = "abs:href";
+    public static final String CHROMEDRIVER = "\\libs\\chromedriver.exe";
     private static final String NEW_TAB_SCRIPT = "window.open()";
     private static final String DOWNLOADS_TAB = "chrome://downloads";
 

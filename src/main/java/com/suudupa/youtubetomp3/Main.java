@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
+import static com.suudupa.youtubetomp3.Utils.CHROMEDRIVER;
+
 public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -55,17 +57,17 @@ public class Main {
 
         //get current project directory
         String currDir = System.getProperty("user.dir");
-        System.setProperty("webdriver.chrome.driver", currDir + "\\libs\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", currDir + CHROMEDRIVER);
 
 
         //start chromedriver.exe
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless --disable-gpu");
         HashMap<String, Object> chromePreferences = new HashMap<>();
         chromePreferences.put("safebrowsing.enabled", false);
         chromePreferences.put("profile.default_content_settings.popups", 0);
         chromePreferences.put("download.default_directory", path);
         chromeOptions.setExperimentalOption("prefs", chromePreferences);
+        chromeOptions.setHeadless(true);
         WebDriver chromeDriver = new ChromeDriver(chromeOptions);
         chromeDriver.get(downloader);
         Utils.getDownloadProgress(chromeDriver);
