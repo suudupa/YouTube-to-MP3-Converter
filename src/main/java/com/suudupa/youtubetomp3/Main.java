@@ -1,16 +1,12 @@
 package com.suudupa.youtubetomp3;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
+import java.net.URL;
 
-import static com.suudupa.youtubetomp3.Utils.CHROMEDRIVER;
+import static com.suudupa.youtubetomp3.Utils.FILE_FORMAT;
 
 public class Main {
 
@@ -33,7 +29,7 @@ public class Main {
 
 
         //get download URL
-        String downloader = null;
+        URL downloader = null;
         try {
             downloader = Utils.getDownloadUrl(converter);
             System.out.println(url + " successfully parsed and converted.\n");
@@ -47,6 +43,7 @@ public class Main {
         System.out.println("Where would you like to download the MP3 file?");
         System.out.print("Enter the folder path: ");
         String path = reader.readLine().trim();
+        if (path.charAt(path.length()-1) == '\\') path = path.substring(0, path.length()-1);
         File dir = new File(path);
         if (dir.exists() && dir.isDirectory()) System.out.println("Found " + path + "\n");
         else {
@@ -55,23 +52,14 @@ public class Main {
         }
 
 
-        //get current project directory
-        String currDir = System.getProperty("user.dir");
-        System.setProperty("webdriver.chrome.driver", currDir + CHROMEDRIVER);
+        //create new file in download path
+        System.out.print("Enter the title of the song: ");
+        String filename = reader.readLine().trim() + FILE_FORMAT;
+        String download = path + "\\" + filename;
 
 
-        //start chromedriver.exe
-        ChromeOptions chromeOptions = new ChromeOptions();
-        HashMap<String, Object> chromePreferences = new HashMap<>();
-        chromePreferences.put("safebrowsing.enabled", false);
-        chromePreferences.put("profile.default_content_settings.popups", 0);
-        chromePreferences.put("download.default_directory", path);
-        chromeOptions.setExperimentalOption("prefs", chromePreferences);
-        chromeOptions.setHeadless(true);
-        WebDriver chromeDriver = new ChromeDriver(chromeOptions);
-        chromeDriver.get(downloader);
-        Utils.getDownloadProgress(chromeDriver);
-        chromeDriver.close();
+        //download MP3 file from download URL
+        Utils.download(downloader, download);
         Utils.exit(0);
     }
 }
