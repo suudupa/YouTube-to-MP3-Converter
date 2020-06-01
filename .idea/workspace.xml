@@ -23,9 +23,26 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/selenium-java-3.141.59.zip!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.suudupa.youtubetomp3.Main" />
+      <module name="YoutubeToMp3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.suudupa.youtubetomp3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.suudupa.Main" />
       <module name="YoutubeToMp3" />
@@ -36,6 +53,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,9 +70,53 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="141" y="137" key="SettingsEditor" timestamp="1589738553059">
+    <state x="120" y="66" key="#Project_Structure" timestamp="1590942330379">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="141" y="137" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1589738553059" />
+    <state x="120" y="66" key="#Project_Structure/0.0.1280.984@0.0.1280.984" timestamp="1590942330379" />
+    <state x="363" y="181" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1590941985153">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="363" y="181" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1280.984@0.0.1280.984" timestamp="1590941985153" />
+    <state x="367" y="300" key="FileChooserDialogImpl" timestamp="1590942194516">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="367" y="300" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1590942194516" />
+    <state width="1237" height="260" key="GridCell.Tab.0.bottom" timestamp="1590981283431">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="260" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1590981283431" />
+    <state width="1237" height="260" key="GridCell.Tab.0.center" timestamp="1590981283431">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="260" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1590981283431" />
+    <state width="1237" height="260" key="GridCell.Tab.0.left" timestamp="1590981283431">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="260" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1590981283431" />
+    <state width="1237" height="260" key="GridCell.Tab.0.right" timestamp="1590981283431">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="260" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1590981283431" />
+    <state width="1237" height="325" key="GridCell.Tab.1.bottom" timestamp="1590874023825">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="325" key="GridCell.Tab.1.bottom/0.0.1280.984@0.0.1280.984" timestamp="1590874023825" />
+    <state width="1237" height="325" key="GridCell.Tab.1.center" timestamp="1590874023825">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="325" key="GridCell.Tab.1.center/0.0.1280.984@0.0.1280.984" timestamp="1590874023825" />
+    <state width="1237" height="325" key="GridCell.Tab.1.left" timestamp="1590874023825">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="325" key="GridCell.Tab.1.left/0.0.1280.984@0.0.1280.984" timestamp="1590874023825" />
+    <state width="1237" height="325" key="GridCell.Tab.1.right" timestamp="1590874023825">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1237" height="325" key="GridCell.Tab.1.right/0.0.1280.984@0.0.1280.984" timestamp="1590874023825" />
+    <state x="141" y="133" key="SettingsEditor" timestamp="1590944333794">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="141" y="133" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1590944333794" />
   </component>
 </project>
