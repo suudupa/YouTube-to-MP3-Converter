@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -82,22 +83,22 @@
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="367" y="300" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1590942194516" />
-    <state width="1237" height="260" key="GridCell.Tab.0.bottom" timestamp="1590981283431">
+    <state width="1237" height="260" key="GridCell.Tab.0.bottom" timestamp="1591031733090">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="260" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1590981283431" />
-    <state width="1237" height="260" key="GridCell.Tab.0.center" timestamp="1590981283431">
+    <state width="1237" height="260" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1591031733090" />
+    <state width="1237" height="260" key="GridCell.Tab.0.center" timestamp="1591031733090">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="260" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1590981283431" />
-    <state width="1237" height="260" key="GridCell.Tab.0.left" timestamp="1590981283431">
+    <state width="1237" height="260" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1591031733090" />
+    <state width="1237" height="260" key="GridCell.Tab.0.left" timestamp="1591031733090">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="260" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1590981283431" />
-    <state width="1237" height="260" key="GridCell.Tab.0.right" timestamp="1590981283431">
+    <state width="1237" height="260" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1591031733090" />
+    <state width="1237" height="260" key="GridCell.Tab.0.right" timestamp="1591031733090">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1237" height="260" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1590981283431" />
+    <state width="1237" height="260" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1591031733090" />
     <state width="1237" height="325" key="GridCell.Tab.1.bottom" timestamp="1590874023825">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
