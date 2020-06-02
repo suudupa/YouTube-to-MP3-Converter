@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URL;
 
 import static com.suudupa.youtubetomp3.Utils.FILE_FORMAT;
 
@@ -12,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        System.out.println("Welcome to the YouTube to MP3 Java converter!\n");
+        System.out.println("\nWelcome to the YouTube to MP3 Java converter!\n");
 
 
         //get converter URL
@@ -28,10 +27,10 @@ public class Main {
         }
 
 
-        //get download URL
-        URL downloader = null;
+        //get download data
+        Download download = null;
         try {
-            downloader = Utils.getDownloadUrl(converter);
+            download = Utils.getDownload(converter);
             System.out.println(url + " successfully parsed and converted.\n");
         } catch (IOException e) {
             System.out.println("Error fetching the download link!\n");
@@ -55,11 +54,11 @@ public class Main {
         //create new file in download path
         System.out.print("Enter the title of the song: ");
         String filename = reader.readLine().trim() + FILE_FORMAT;
-        String download = path + "\\" + filename;
+        String mp3File = path + "\\" + filename;
 
 
         //download MP3 file from download URL
-        Utils.download(downloader, download);
+        Utils.download(download, mp3File);
         Utils.exit(0);
     }
 }
