@@ -5,9 +5,9 @@ import java.net.URL;
 public class Download {
 
     private final URL url;
-    private final long totalSize;
+    private final double totalSize;
 
-    public Download(URL url, long totalSize) {
+    public Download(URL url, double totalSize) {
         this.url = url;
         this.totalSize = totalSize;
     }
@@ -16,7 +16,7 @@ public class Download {
         return this.url;
     }
 
-    public long getTotalSize() {
+    public double getTotalSize() {
         return this.totalSize;
     }
 }

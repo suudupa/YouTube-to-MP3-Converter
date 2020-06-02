@@ -41,10 +41,9 @@ public class Main {
         //get download path
         System.out.println("Where would you like to download the MP3 file?");
         System.out.print("Enter the folder path: ");
-        String path = reader.readLine().trim();
-        if (path.charAt(path.length()-1) == '\\') path = path.substring(0, path.length()-1);
+        String path = Utils.formatPath(reader.readLine().trim());
         File dir = new File(path);
-        if (dir.exists() && dir.isDirectory()) System.out.println("Found " + path + "\n");
+        if (dir.exists() && dir.isDirectory()) System.out.println("Found " + path + ".\n");
         else {
             System.out.print("Could not locate " + path + "\n");
             Utils.exit(3);
