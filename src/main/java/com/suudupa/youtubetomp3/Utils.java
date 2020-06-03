@@ -17,21 +17,28 @@ public class Utils {
     private static final String DOWNLOAD_BTN = "a.btn.btn-success.btn-lg";
     private static final String DOWNLOAD_LINK = "abs:href";
     private static final String PARAGRAPH = "p";
-    public static final String FILE_FORMAT = ".mp3";
+    private static final String FILE_FORMAT = ".mp3";
 
-    private static final int DOWNLOAD_SIZE = 3;
+    private static final int SONG_TITLE = 2;
+    private static final int SONG_TITLE_BEGIN_INDEX = 7;
+    private static final int DOWNLOAD_SIZE = SONG_TITLE + 1;
     private static final int BUFFER = 1024;
     private static final int PROGRESS_BAR = 140;
 
     //remove "" or '\' from path
-    public static String formatPath(String path) {
+    public static String formatDownloadPath(String path) {
         path = path.replaceAll("\"", "");
         if (path.charAt(path.length()-1) == '\\') path = path.substring(0, path.length()-1);
         return path;
     }
 
+    //get MP3 file path
+    public static String getFilePath(String path, String title) {
+        return path + "\\" + title + FILE_FORMAT;
+    }
+
     //get converter URL
-    public static String convertUrl(String url) throws NullPointerException {
+    public static String convertUrl(String url) throws StringIndexOutOfBoundsException {
         int index = url.indexOf(DELIMITER);
         StringBuilder convertedUrl = new StringBuilder(url);
         return convertedUrl.insert(index, CONVERTER).toString();
@@ -41,11 +48,17 @@ public class Utils {
     public static Download getDownload(String url) throws IOException {
         Document pageSource = Jsoup.connect(url).get();
         String downloadUrl = pageSource.select(DOWNLOAD_BTN).first().attr(DOWNLOAD_LINK);
+        String songTitle = pageSource.select(PARAGRAPH).get(SONG_TITLE).text();
         String downloadSize = pageSource.select(PARAGRAPH).get(DOWNLOAD_SIZE).text();
-        return new Download(new URL(downloadUrl), parseDownloadSize(downloadSize));
+        return new Download(new URL(downloadUrl), parseSongTitle(songTitle), parseDownloadSize(downloadSize));
     }
 
-    //parse download size from text
+    //parse song title from converter page source
+    public static String parseSongTitle(String songTitle) {
+        return songTitle.substring(SONG_TITLE_BEGIN_INDEX);
+    }
+
+    //parse download size from converter page source
     private static double parseDownloadSize(String downloadSize) {
         downloadSize = downloadSize.replaceAll("[^\\d.]", "");
         double totalBytes;
@@ -59,7 +72,7 @@ public class Utils {
 
     //download file from download URL
     public static void download(Download download, String file) throws IOException {
-        System.out.println("\nStarting download...");
+        System.out.println(String.format("\nDownloading %s...", download.getSongTitle()));
         double downloadStart = System.currentTimeMillis();
 
         InputStream in = download.getUrl().openStream();
@@ -77,7 +90,6 @@ public class Utils {
             fos.write(buffer, 0, length);
             bytesDownloaded += length;
             percentage = (int) ((bytesDownloaded / totalSize) * 100D);
-            //if (percentage != prevPercentage && percentage <= 100) System.out.print("\r" + percentage + "% completed.");
             if (percentage != prevPercentage && percentage <= 100) printDownloadProgress(percentage);
             prevPercentage = percentage;
         }

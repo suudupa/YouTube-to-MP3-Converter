@@ -4,60 +4,57 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import static com.suudupa.youtubetomp3.Utils.FILE_FORMAT;
+import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
 
         System.out.println("\nWelcome to the YouTube to MP3 Java converter!\n");
 
 
-        //get converter URL
-        System.out.print("Enter the URL of the Youtube video: ");
+        //get list of urls
+        System.out.print("Enter a comma-separated list of the YouTube video URLs you wish to download: ");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String url = reader.readLine().trim();
-        String converter = null;
-        try {
-            converter = Utils.convertUrl(url);
-        } catch (NullPointerException e) {
-            System.out.println("Error parsing the given URL (invalid format)!\n");
-            Utils.exit(1);
-        }
+        String[] urls = reader.readLine().trim().split(",");
+        System.out.println();
 
-
-        //get download data
-        Download download = null;
-        try {
-            download = Utils.getDownload(converter);
-            System.out.println(url + " successfully parsed and converted.\n");
-        } catch (IOException e) {
-            System.out.println("Error fetching the download link!\n");
-            Utils.exit(2);
+        //get list of songs to download
+        ArrayList<Song> songs = new ArrayList<>();
+        for (String url : urls) {
+            try {
+                songs.add(new Song(url.trim()));
+                System.out.println(url.trim() + " successfully parsed and converted.");
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println(String.format("Error parsing %s (invalid format) -> skipped!", url));
+            } catch (IOException e) {
+                System.out.println(String.format("Error fetching the download link for %s -> skipped!", url));
+            }
         }
+        System.out.println();
+
+        if (songs.size() < 1) Utils.exit(1);
 
 
         //get download path
-        System.out.println("Where would you like to download the MP3 file?");
+        System.out.println("Where would you like to download the MP3 files?");
         System.out.print("Enter the folder path: ");
-        String path = Utils.formatPath(reader.readLine().trim());
+        String path = Utils.formatDownloadPath(reader.readLine().trim());
         File dir = new File(path);
         if (dir.exists() && dir.isDirectory()) System.out.println("Found " + path + ".\n");
         else {
             System.out.print("Could not locate " + path + "\n");
-            Utils.exit(3);
+            Utils.exit(2);
         }
 
 
-        //create new file in download path
-        System.out.print("Enter the title of the song: ");
-        String filename = reader.readLine().trim() + FILE_FORMAT;
-        String mp3File = path + "\\" + filename;
+        //download each song in the list
+        for (Song song : songs) {
+            String songTitle = song.getDownload().getSongTitle();
+            String mp3File = Utils.getFilePath(path, songTitle);
+            Utils.download(song.getDownload(), mp3File);
+        }
 
-
-        //download MP3 file from download URL
-        Utils.download(download, mp3File);
         Utils.exit(0);
     }
 }
